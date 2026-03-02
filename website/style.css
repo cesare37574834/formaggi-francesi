@@ -1,0 +1,270 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #FFD700, #FFF44F);
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FFD700, #FFF44F);
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* NAV */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #4CAF50;
+    bottom: -4px;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO SECTION CON IMMAGINE DI SFONDO */
+.hero {
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("images/sfondo-formaggi.jpg") center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(0,0,0,0.8);
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* SEZIONI */
+section {
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 1100px;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: 0.4s ease;
+}
+
+section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 45px rgba(76,175,80,0.3);
+}
+
+section h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    border-left: 6px solid #4CAF50;
+    padding-left: 1rem;
+}
+
+/* CARD FORMAGGI */
+.cheese-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.cheese-card img {
+    width: 280px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.cheese-card img:hover {
+    transform: scale(1.05) rotateY(5deg);
+}
+
+.cheese-info {
+    flex: 1;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #222;
+    color: #fff;
+    margin-top: 4rem;
+}
+
+/* ANIMAZIONI */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* FORMAGGI ANIMATI */
+.floating-cheese {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+    25% { transform: translateY(-40px) rotate(10deg); opacity: 0.9; }
+    50% { transform: translateY(-80px) rotate(20deg); opacity: 1; }
+    75% { transform: translateY(-40px) rotate(10deg); opacity: 0.9; }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+    25% { transform: translateY(-50px) rotate(-15deg); opacity: 0.85; }
+    50% { transform: translateY(-90px) rotate(-30deg); opacity: 1; }
+    75% { transform: translateY(-50px) rotate(-15deg); opacity: 0.85; }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.75; }
+    25% { transform: translateY(-35px) rotate(8deg); opacity: 0.88; }
+    50% { transform: translateY(-75px) rotate(16deg); opacity: 0.95; }
+    75% { transform: translateY(-35px) rotate(8deg); opacity: 0.88; }
+}
+
+.cheese-1 {
+    animation: float1 6s ease-in-out infinite;
+    left: 10%;
+}
+
+.cheese-2 {
+    animation: float2 7s ease-in-out infinite;
+    left: 30%;
+    animation-delay: 1s;
+}
+
+.cheese-3 {
+    animation: float3 8s ease-in-out infinite;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.cheese-4 {
+    animation: float1 7.5s ease-in-out infinite;
+    left: 70%;
+    animation-delay: 1.5s;
+}
+
+.cheese-5 {
+    animation: float2 6.5s ease-in-out infinite;
+    left: 85%;
+    animation-delay: 0.5s;
+}
+
+.cheese-6 {
+    animation: float3 8.5s ease-in-out infinite;
+    left: 15%;
+    animation-delay: 2.5s;
+}
+
+.cheese-7 {
+    animation: float1 7s ease-in-out infinite;
+    left: 45%;
+    animation-delay: 3s;
+}
+
+.cheese-8 {
+    animation: float2 8s ease-in-out infinite;
+    left: 75%;
+    animation-delay: 1s;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero {
+        font-size: 2rem;
+        padding: 4rem 1rem;
+    }
+
+    .cheese-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cheese-card img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
+
+/* ACCESSIBILITÀ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
